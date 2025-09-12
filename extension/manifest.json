@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "Gaurdian",
+  "version": "1.0",
+
+  "description": "Sends Information about your current running site",
+
+  "icons": {
+    "48": "logo/logo_1.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.mozilla.org/*"],
+      "js": ["gaurdian.js"]
+    }
+  ]
+}
