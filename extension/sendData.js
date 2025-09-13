@@ -3,11 +3,15 @@
 
   function getTabData(tabs) {
     let activity_data = {};
+    console.log(tabs);
     tabs.forEach((tab) => {
       let activity_data_tab = {
-        isActive: tab.active,
-        url: tab.url,
+        id: tab.id,
         title: tab.title,
+        url: tab.url,
+        isActive: tab.active,
+        lastAcess: tab.lastAccessed,
+        upTime: 0,
       };
 
       activity_data[`${tab.id}`] = activity_data_tab;

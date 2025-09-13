@@ -1,16 +1,22 @@
 from flask import Flask, jsonify, request
+import sys
+sys.path.insert(1, "database/")
+import sqlite as sq
 
 app = Flask(__name__)
 
 @app.route("/log-activity", methods=['POST'])
 def helloWorld():
     activity_data = request.get_json()
-    print(activity_data)
-    # url           = activity_data.get('url')
-    # title         = activity_data.get('title')
 
-    # print(f"Browser is on {title}")
-    # print(f"With Url on {url}")
+    data = []
+    for i in activity_data:
+        currValues = activity_data[i].values()
+        tupleCurr  = tuple(currValues)
+
+        data.append(tupleCurr)
+
+    sq.addData(data)
 
     return jsonify({"status": "ok"}), 200
 
