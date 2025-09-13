@@ -7,6 +7,10 @@ def addData(data): # [(id, title, url, isActive, startTime, uptime), (), ...]
         conn = sqlite3.connect("currMemory.db")
         cur  = conn.cursor()
 
+        prevTabIdsQuery = "SELECT id FROM tabs"
+        response = cur.execute(prevTabIdsQuery)
+        allPrevTabIds = set(response.fetchall())
+
         for req in data:
             searchQuery = "SELECT * FROM tabs WHERE id=?"
             cur.execute(searchQuery, (req[0],))
@@ -16,14 +20,14 @@ def addData(data): # [(id, title, url, isActive, startTime, uptime), (), ...]
             ISACTIVE  = req[3]
             STARTTIME = req[4]
 
+            allPrevTabIds.discard((ID,))  # this tab haven't been closed
+
             if result:
                 ISACTIVE_P  = result[3]
                 STARTTIME_P = result[4]
                 UPTIME_P    = result[5]
                 # prev was active and now is also active
                 if (ISACTIVE == ISACTIVE_P == True):
-                    print("NOW: ", STARTTIME)
-                    print("PREV: ", STARTTIME_P)
                     upTime = STARTTIME - STARTTIME_P
                     query = (f"UPDATE tabs "
                             f"SET upTime = {upTime} "
@@ -54,10 +58,17 @@ def addData(data): # [(id, title, url, isActive, startTime, uptime), (), ...]
                             f"WHERE id=?")
 
                 cur.execute(query, (ID,))
-                conn.commit()
+                
             else:
                 cur.execute("INSERT INTO tabs VALUES (?, ?, ?, ?, ?, ?)", req)
-                conn.commit()
+    
+        # Delete the data about closed tab
+        for i in allPrevTabIds:
+            query = (f"DELETE FROM tabs "
+                    f"WHERE id=?")
+            cur.execute(query, i)
+            
+        conn.commit()
 
     except sqlite3.Error as error:
         print("Error occured: ", error)
