@@ -3,6 +3,8 @@
   "name": "Gaurdian",
   "version": "1.0",
 
+  "permissions": ["tabs", "activeTab", "<all_urls>"],
+
   "description": "Sends Information about your current running site",
 
   "icons": {
@@ -11,8 +13,16 @@
 
   "content_scripts": [
     {
-      "matches": ["*://*.mozilla.org/*"],
-      "js": ["gaurdian.js"]
+      "matches": [
+        "<all_urls>",
+        "*://*.youtube.com/*",
+        "http://www.youtube.com/*"
+      ],
+      "js": []
     }
-  ]
+  ],
+
+  "background": {
+    "scripts": ["sendData.js"]
+  }
 }
