@@ -1,6 +1,6 @@
 import sqlite3
 import time
-import loadBrain as lb
+import firstBrain as fb
 
 def startReasoning():
     conn = None
@@ -20,7 +20,7 @@ def startReasoning():
             row[5] = (row[5] / 60000)    # need rechecking
             data.append(row)
 
-        lb.analyseData(data)
+        fb.analyseData(data)
 
     except sqlite3.Error as error:
         print("Error occured: ", error)
