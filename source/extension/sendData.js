@@ -1,9 +1,13 @@
 (function () {
-  browser.tabs.query({ currentWindow: true }, getTabData);
+  // const intervalId = setInterval(sendData, 500000); // Every 5 minutes
+  const intervalId = setInterval(sendData, 120000); // Every 2 minutes
+
+  function sendData() {
+    browser.tabs.query({ currentWindow: true }, getTabData);
+  }
 
   function getTabData(tabs) {
     let activity_data = {};
-    console.log(tabs);
     tabs.forEach((tab) => {
       let activity_data_tab = {
         id: tab.id,
@@ -25,4 +29,10 @@
       body: JSON.stringify(activity_data),
     }).catch((error) => console.error("Error sending data to python: ", error));
   }
+
+  // function cleanUp() {
+  //   setTimeout(() => {
+  //     clearInterval(intervalId);
+  //   }, 10000000);
+  // }
 })();

@@ -2,6 +2,11 @@ from dotenv import load_dotenv
 import os
 import json
 import requests
+import sys 
+sys.path.insert(1, "helper/")
+
+from logger import get_logger   
+logger = get_logger(__name__)
 
 load_dotenv()
 
@@ -30,6 +35,6 @@ def google_search(query):
         return snippets
 
     except requests.exceptions.RequestException as e:
-        print(f"Error during Google Search: {e}")
+        logger.debug("Error during Google Search: %s", e)
         return "Search failed."
 

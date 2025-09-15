@@ -1,0 +1,306 @@
+2025-09-15 23:00:48,726 | DEBUG    | sqlite | Clearing the session [Deleting all rows of database]
+2025-09-15 23:00:48,729 | DEBUG    | __main__ | Started Listener With PID: 32833
+2025-09-15 23:00:48,760 | DEBUG    | notification | Notification send with message: I Will be there for help
+ * Serving Flask app 'getData'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 559-085-493
+2025-09-15 23:02:48,512 | DEBUG    | __main__ | Data received from extension
+2025-09-15 23:02:48,513 | DEBUG    | sqlite | Adding new data
+127.0.0.1 - - [15/Sep/2025 23:02:48] "POST /log-activity HTTP/1.1" 200 -
+2025-09-15 23:04:54,575 | DEBUG    | __main__ | Data received from extension
+2025-09-15 23:04:54,575 | DEBUG    | sqlite | Adding new data
+127.0.0.1 - - [15/Sep/2025 23:04:54] "POST /log-activity HTTP/1.1" 200 -
+2025-09-15 23:05:48,779 | DEBUG    | brainCaller | Reasoning has started.
+2025-09-15 23:06:08,865 | DEBUG    | firstBrain | First Brain response: []
+2025-09-15 23:06:54,576 | DEBUG    | __main__ | Data received from extension
+2025-09-15 23:06:54,576 | DEBUG    | sqlite | Adding new data
+127.0.0.1 - - [15/Sep/2025 23:06:54] "POST /log-activity HTTP/1.1" 200 -
+2025-09-15 23:08:54,761 | DEBUG    | __main__ | Data received from extension
+2025-09-15 23:08:54,761 | DEBUG    | sqlite | Adding new data
+127.0.0.1 - - [15/Sep/2025 23:08:54] "POST /log-activity HTTP/1.1" 200 -
+2025-09-15 23:10:55,409 | DEBUG    | __main__ | Data received from extension
+2025-09-15 23:10:55,409 | DEBUG    | sqlite | Adding new data
+127.0.0.1 - - [15/Sep/2025 23:10:55] "POST /log-activity HTTP/1.1" 200 -
+2025-09-15 23:11:08,925 | DEBUG    | brainCaller | Reasoning has started.
+2025-09-15 23:11:42,575 | DEBUG    | firstBrain | First Brain response: [{'id': 42, 'title': 'YouTube', 'url': 'https://www.youtube.com/', 'confidence': 0.8, 'reason': "YouTube is a general-purpose video platform; without more context, it's likely used for entertainment rather than productivity."}]
+2025-09-15 23:11:45,818 | DEBUG    | firstBrain | Final decision: <think>
+Okay, so I'm trying to figure out whether the user's YouTube tab is distracting or productive. The initial analysis gave it a confidence score of 0.8, which is pretty high, suggesting it's likely distracting. The reason given is that YouTube is a general-purpose platform, so without more context, it's probably for entertainment.
+
+Looking at the supplementary information, it mentions that YouTube is for sharing videos, has a music app with millions of songs, movies, shows, and live streaming options. All of these sound like entertainment rather than productivity. The user's goal is to be productive and efficient, so if they're on YouTube without a specific work-related purpose, it's probably a distraction.
+
+I should consider if the user is using YouTube for learning. Maybe they're watching tutorials or educational content. But the initial analysis doesn't specify that. Without knowing the exact content, it's safer to assume it's for entertainment, especially since the supplementary info points more towards leisure activities.
+
+Also, the method of using YouTube for learning can be inefficient. Instead of endlessly searching for videos, the user could use more targeted resources like official documentation or Stack Overflow for quicker answers. This would help them stay focused and avoid the distractions that come with browsing YouTube.
+
+So, putting it all together, the YouTube tab is likely distracting the user from their productive tasks. They might be taking breaks or getting sidetracked by entertainment content, which hinders their efficiency. It would be helpful to suggest a tool like the Unhook extension to block or limit YouTube usage, keeping them on track.
+</think>
+
+```json
+{
+  "final_decision": "distracting",
+  "notification_message": "YouTube might be distracting you from your tasks. Consider using more focused resources for learning or work-related content.",
+  "help": "If you wish to stay focused, consider installing the Unhook web extension to minimize distractions."
+}
+```
+Sub-cleaned:  ```json
+{
+  "final_decision": "distracting",
+  "notification_message": "YouTube might be distracting you from your tasks. Consider using more focused resources for learning or work-related content.",
+  "help": "If you wish to stay focused, consider installing the Unhook web extension to minimize distractions."
+}
+```
+Final obj:  {'final_decision': 'distracting', 'notification_message': 'YouTube might be distracting you from your tasks. Consider using more focused resources for learning or work-related content.', 'help': 'If you wish to stay focused, consider installing the Unhook web extension to minimize distractions.'}
+2025-09-15 23:11:45,885 | DEBUG    | notification | Notification send with message: YouTube might be distracting you from your tasks. Consider using more focused resources for learning or work-related content. If you wish to stay focused, consider installing the Unhook web extension to minimize distractions.
+2025-09-15 23:12:55,634 | DEBUG    | __main__ | Data received from extension
+2025-09-15 23:12:55,634 | DEBUG    | sqlite | Adding new data
+127.0.0.1 - - [15/Sep/2025 23:12:55] "POST /log-activity HTTP/1.1" 200 -
+2025-09-15 23:14:55,635 | DEBUG    | __main__ | Data received from extension
+2025-09-15 23:14:55,636 | DEBUG    | sqlite | Adding new data
+127.0.0.1 - - [15/Sep/2025 23:14:55] "POST /log-activity HTTP/1.1" 200 -
+2025-09-15 23:16:45,942 | DEBUG    | brainCaller | Reasoning has started.
+2025-09-15 23:16:48,236 | DEBUG    | firstBrain | First Brain response: [{'id': 42, 'title': 'YouTube', 'confidence': 0.8, 'reason': 'Generic YouTube URL with no specific educational or task-related context.'}, {'id': 43, 'title': 'YouTube', 'confidence': 0.8, 'reason': 'Generic YouTube URL with no specific educational or task-related context.'}]
+2025-09-15 23:16:52,908 | DEBUG    | firstBrain | Final decision: <think>
+Okay, so I'm trying to figure out whether the user's browser activity is productive or distracting. The user has two tabs open, both from YouTube, each with a confidence score of 0.8. The initial analysis says they're generic YouTube URLs without specific educational or task-related context. 
+
+First, I need to evaluate the analyst's reason. YouTube can be both productive and distracting depending on the content. The more_info provided includes general descriptions about sharing videos, music, movies, and TV shows. There's no specific mention of educational content or anything related to a task. So, the analyst's reason seems valid because without specific context, it's hard to say it's productive.
+
+Next, I should consider the user's method. If they're using YouTube for learning, is their method efficient? Maybe they're watching tutorials, but if they're endlessly searching or watching unrelated videos, that's inefficient. However, without knowing the exact content, it's safer to assume it might be distracting, especially since the URLs are generic.
+
+I also need to think about whether there's a better resource they could use. For example, if they're trying to learn something technical, Stack Overflow or official documentation would be more efficient. But since the tabs are just YouTube, it's possible they're not using the best method.
+
+Looking at the user's recent activity, they've spent over 10 minutes on these tabs. That's a significant amount of time. If they're supposed to be working, this could be a distraction. Alternatively, if they're taking breaks, maybe it's not too bad, but the confidence is 0.8, which is fairly high for distraction.
+
+So, putting it all together, the tabs are likely distracting because they're generic YouTube URLs without clear educational purpose, and the user could be using more efficient resources. The time spent also suggests potential distraction from their main task.
+</think>
+
+```json
+{
+  "final_decision": "distracting",
+  "notification_message": "You're spending time on generic YouTube content. Consider using more focused resources like official documentation or specific tutorials for efficient learning.",
+  "help": "If you wish to continue, consider using the unhook web extension to stay focused."
+}
+```
+Sub-cleaned:  ```json
+{
+  "final_decision": "distracting",
+  "notification_message": "You're spending time on generic YouTube content. Consider using more focused resources like official documentation or specific tutorials for efficient learning.",
+  "help": "If you wish to continue, consider using the unhook web extension to stay focused."
+}
+```
+Final obj:  {'final_decision': 'distracting', 'notification_message': "You're spending time on generic YouTube content. Consider using more focused resources like official documentation or specific tutorials for efficient learning.", 'help': 'If you wish to continue, consider using the unhook web extension to stay focused.'}
+2025-09-15 23:16:52,925 | DEBUG    | notification | Notification send with message: You're spending time on generic YouTube content. Consider using more focused resources like official documentation or specific tutorials for efficient learning. If you wish to continue, consider using the unhook web extension to stay focused.
+2025-09-15 23:16:56,327 | DEBUG    | __main__ | Data received from extension
+2025-09-15 23:16:56,327 | DEBUG    | sqlite | Adding new data
+127.0.0.1 - - [15/Sep/2025 23:16:56] "POST /log-activity HTTP/1.1" 200 -
+2025-09-15 23:18:56,368 | DEBUG    | __main__ | Data received from extension
+2025-09-15 23:18:56,369 | DEBUG    | sqlite | Adding new data
+127.0.0.1 - - [15/Sep/2025 23:18:56] "POST /log-activity HTTP/1.1" 200 -
+2025-09-15 23:20:56,365 | DEBUG    | __main__ | Data received from extension
+2025-09-15 23:20:56,365 | DEBUG    | sqlite | Adding new data
+127.0.0.1 - - [15/Sep/2025 23:20:56] "POST /log-activity HTTP/1.1" 200 -
+2025-09-15 23:21:52,984 | DEBUG    | brainCaller | Reasoning has started.
+2025-09-15 23:21:58,981 | DEBUG    | firstBrain | First Brain response: [{'id': 42, 'title': 'YouTube', 'confidence': 0.8, 'reason': 'Generic YouTube URL with no specific educational or task-related context.  High probability of entertainment consumption.'}, {'id': 43, 'title': 'YouTube', 'confidence': 0.8, 'reason': 'Generic YouTube URL with no specific educational or task-related context. High probability of entertainment consumption.'}]
+2025-09-15 23:22:03,792 | DEBUG    | firstBrain | Final decision: <think>
+Okay, so I'm trying to figure out whether the user's browser activity is productive or distracting. The user has two tabs open, both are YouTube with a confidence level of 0.8 each. The initial analysis says they're probably entertainment because the URLs are generic without specific educational context.
+
+First, I need to evaluate if the analyst's reason is valid. YouTube can be both educational and entertaining, but without specific context, it's hard to tell. The supplementary info mentions things like sharing videos, music, movies, and live TV, which leans more towards entertainment.
+
+Next, I should consider the user's method. If they're using YouTube for learning, maybe they're not using the most efficient resources. For example, if they're looking for tutorials, official docs or Stack Overflow might be better. But since the URLs are generic, it's likely they're just browsing or watching videos for entertainment.
+
+Looking at the time spent, over 10 minutes on these tabs suggests they might be getting distracted. If the user's main task is something else, having YouTube open could be pulling their focus away, making them less productive.
+
+I should also think about the user's goal. They want to be productive and efficient. So, if YouTube is being used for entertainment, it's probably distracting them from their tasks. But if it's for learning, maybe they're not using the best method.
+
+In this case, since both tabs are generic YouTube URLs without specific educational content, it's more likely they're using it for entertainment. Therefore, the activity is distracting.
+
+The notification message should encourage them to stay focused and maybe suggest a tool to help them avoid distractions, like the Unhook extension.
+</think>
+
+```json
+{
+  "final_decision": "distracting",
+  "notification_message": "It looks like you're spending time on YouTube without a specific educational focus. Consider using more targeted resources for learning or staying focused on your current task.",
+  "help": "If you wish to continue, please consider installing the Unhook web extension to help maintain your focus."
+}
+```
+Sub-cleaned:  ```json
+{
+  "final_decision": "distracting",
+  "notification_message": "It looks like you're spending time on YouTube without a specific educational focus. Consider using more targeted resources for learning or staying focused on your current task.",
+  "help": "If you wish to continue, please consider installing the Unhook web extension to help maintain your focus."
+}
+```
+Final obj:  {'final_decision': 'distracting', 'notification_message': "It looks like you're spending time on YouTube without a specific educational focus. Consider using more targeted resources for learning or staying focused on your current task.", 'help': 'If you wish to continue, please consider installing the Unhook web extension to help maintain your focus.'}
+2025-09-15 23:22:03,810 | DEBUG    | notification | Notification send with message: It looks like you're spending time on YouTube without a specific educational focus. Consider using more targeted resources for learning or staying focused on your current task. If you wish to continue, please consider installing the Unhook web extension to help maintain your focus.
+2025-09-15 23:22:56,670 | DEBUG    | __main__ | Data received from extension
+2025-09-15 23:22:56,670 | DEBUG    | sqlite | Adding new data
+127.0.0.1 - - [15/Sep/2025 23:22:56] "POST /log-activity HTTP/1.1" 200 -
+2025-09-15 23:24:56,861 | DEBUG    | __main__ | Data received from extension
+2025-09-15 23:24:56,861 | DEBUG    | sqlite | Adding new data
+127.0.0.1 - - [15/Sep/2025 23:24:56] "POST /log-activity HTTP/1.1" 200 -
+2025-09-15 23:26:57,292 | DEBUG    | __main__ | Data received from extension
+2025-09-15 23:26:57,292 | DEBUG    | sqlite | Adding new data
+127.0.0.1 - - [15/Sep/2025 23:26:57] "POST /log-activity HTTP/1.1" 200 -
+2025-09-15 23:27:03,879 | DEBUG    | brainCaller | Reasoning has started.
+2025-09-15 23:27:08,866 | DEBUG    | firstBrain | First Brain response: [{'id': 42, 'title': 'YouTube', 'confidence': 0.8, 'reason': 'Generic YouTube URL with no specific educational or learning context.  High likelihood of entertainment-focused content.'}, {'id': 43, 'title': 'YouTube', 'confidence': 0.8, 'reason': 'Generic YouTube URL with no specific educational or learning context. High likelihood of entertainment-focused content.'}]
+2025-09-15 23:27:14,011 | DEBUG    | firstBrain | Final decision: <think>
+Okay, so I need to figure out whether the user's browser activity is productive or distracting. The user has two tabs open, both are YouTube with a confidence level of 0.8. The initial analysis says they're likely entertainment-focused because the URLs are generic without specific educational context.
+
+First, I should evaluate the analyst's reason. YouTube can be both educational and entertaining, but without specific context, it's hard to tell. The supplementary info mentions things like sharing videos, music, movies, and live TV, which lean more towards entertainment. So the analyst's reason seems valid.
+
+Next, I need to consider the user's method. If they're using YouTube for learning, is it efficient? Maybe they're watching tutorials, but without specific titles, it's unclear. However, the presence of multiple tabs and spending over 10 minutes could indicate distraction, especially if they're switching between tasks and entertainment.
+
+I should also think about alternative resources. If the user is trying to learn something, official documentation or sites like Stack Overflow are usually more efficient than endless YouTube searches. But since the tabs are generic, it's more likely they're using YouTube for entertainment, which can be distracting if the user is supposed to be working.
+
+So, putting it all together, the tabs are likely distracting. The user might be procrastinating or taking unnecessary breaks, which hampers productivity. The notification should encourage them to stay focused, and suggesting a tool like Unhook could help them manage YouTube distractions better.
+</think>
+
+```json
+{
+  "final_decision": "distracting",
+  "notification_message": "It looks like you're spending time on YouTube without a specific educational context. This could be distracting you from your tasks. Consider using tools like Unhook to help you stay focused.",
+  "help": "If you wish to continue, please install the Unhook web extension to maintain your focus."
+}
+```
+Sub-cleaned:  ```json
+{
+  "final_decision": "distracting",
+  "notification_message": "It looks like you're spending time on YouTube without a specific educational context. This could be distracting you from your tasks. Consider using tools like Unhook to help you stay focused.",
+  "help": "If you wish to continue, please install the Unhook web extension to maintain your focus."
+}
+```
+Final obj:  {'final_decision': 'distracting', 'notification_message': "It looks like you're spending time on YouTube without a specific educational context. This could be distracting you from your tasks. Consider using tools like Unhook to help you stay focused.", 'help': 'If you wish to continue, please install the Unhook web extension to maintain your focus.'}
+2025-09-15 23:27:14,036 | DEBUG    | notification | Notification send with message: It looks like you're spending time on YouTube without a specific educational context. This could be distracting you from your tasks. Consider using tools like Unhook to help you stay focused. If you wish to continue, please install the Unhook web extension to maintain your focus.
+2025-09-15 23:28:57,806 | DEBUG    | __main__ | Data received from extension
+2025-09-15 23:28:57,806 | DEBUG    | sqlite | Adding new data
+127.0.0.1 - - [15/Sep/2025 23:28:57] "POST /log-activity HTTP/1.1" 200 -
+2025-09-15 23:30:59,295 | DEBUG    | __main__ | Data received from extension
+2025-09-15 23:30:59,295 | DEBUG    | sqlite | Adding new data
+127.0.0.1 - - [15/Sep/2025 23:30:59] "POST /log-activity HTTP/1.1" 200 -
+2025-09-15 23:32:14,090 | DEBUG    | brainCaller | Reasoning has started.
+2025-09-15 23:32:16,400 | DEBUG    | firstBrain | First Brain response: [{'id': 42, 'title': 'YouTube', 'confidence': 0.8, 'reason': "Generic YouTube URL; without specific context, it's likely for entertainment rather than educational purposes."}, {'id': 43, 'title': 'YouTube', 'confidence': 0.8, 'reason': "Generic YouTube URL; without specific context, it's likely for entertainment rather than educational purposes."}]
+2025-09-15 23:32:20,425 | DEBUG    | firstBrain | Final decision: <think>
+Okay, so I need to figure out whether the user's browser activity is productive or distracting. The user has two tabs open, both are YouTube with a confidence level of 0.8. The initial analysis says they're likely for entertainment because they're generic URLs. 
+
+First, I should consider what the user's goal is. They want to be productive and efficient. If they're watching YouTube without a specific educational context, it's probably distracting. But maybe they're using YouTube for learning? The initial analysis doesn't specify the content, just that it's generic.
+
+Looking at the supplementary info, it's about sharing videos, music, movies, and TV shows. That leans more towards entertainment. If the user is supposed to be working, having two YouTube tabs open could be a sign of procrastination or distraction.
+
+I should think about whether there's a better resource for what they might need. If they're learning something, official docs or Stack Overflow are usually better. But since the URLs are generic, it's hard to say. Maybe suggest they use a more focused resource if they're trying to learn.
+
+Also, the fact that they've spent over 10 minutes on these tabs suggests it's taking a significant amount of time, which could be impacting their productivity. 
+
+So, putting it all together, the tabs are likely distracting. The notification should encourage them to stay focused and maybe suggest a tool to help them avoid distractions, like the Unhook extension.
+</think>
+
+```json
+{
+  "final_decision": "distracting",
+  "notification_message": "It looks like you're spending time on YouTube. While it can be a useful resource, generic browsing might be distracting you from your goals. Consider using more focused resources if you're learning something specific.",
+  "help": "If you wish to stay focused, consider installing the Unhook extension to help manage your YouTube usage."
+}
+```
+Sub-cleaned:  ```json
+{
+  "final_decision": "distracting",
+  "notification_message": "It looks like you're spending time on YouTube. While it can be a useful resource, generic browsing might be distracting you from your goals. Consider using more focused resources if you're learning something specific.",
+  "help": "If you wish to stay focused, consider installing the Unhook extension to help manage your YouTube usage."
+}
+```
+Final obj:  {'final_decision': 'distracting', 'notification_message': "It looks like you're spending time on YouTube. While it can be a useful resource, generic browsing might be distracting you from your goals. Consider using more focused resources if you're learning something specific.", 'help': 'If you wish to stay focused, consider installing the Unhook extension to help manage your YouTube usage.'}
+2025-09-15 23:32:20,438 | DEBUG    | notification | Notification send with message: It looks like you're spending time on YouTube. While it can be a useful resource, generic browsing might be distracting you from your goals. Consider using more focused resources if you're learning something specific. If you wish to stay focused, consider installing the Unhook extension to help manage your YouTube usage.
+2025-09-15 23:32:59,293 | DEBUG    | __main__ | Data received from extension
+2025-09-15 23:32:59,293 | DEBUG    | sqlite | Adding new data
+127.0.0.1 - - [15/Sep/2025 23:32:59] "POST /log-activity HTTP/1.1" 200 -
+2025-09-15 23:34:59,294 | DEBUG    | __main__ | Data received from extension
+2025-09-15 23:34:59,294 | DEBUG    | sqlite | Adding new data
+127.0.0.1 - - [15/Sep/2025 23:34:59] "POST /log-activity HTTP/1.1" 200 -
+2025-09-15 23:36:59,293 | DEBUG    | __main__ | Data received from extension
+2025-09-15 23:36:59,294 | DEBUG    | sqlite | Adding new data
+127.0.0.1 - - [15/Sep/2025 23:36:59] "POST /log-activity HTTP/1.1" 200 -
+2025-09-15 23:37:20,486 | DEBUG    | brainCaller | Reasoning has started.
+2025-09-15 23:37:24,247 | DEBUG    | firstBrain | First Brain response: [{'id': 42, 'title': 'YouTube', 'url': 'https://www.youtube.com/', 'confidence': 0.8, 'reason': "Generic YouTube URL; without further context, it's likely for entertainment rather than educational purposes.  Significant uptime further suggests distraction."}, {'id': 43, 'title': 'YouTube', 'url': 'https://www.youtube.com/', 'confidence': 0.8, 'reason': "Generic YouTube URL; without further context, it's likely for entertainment rather than educational purposes.  Significant uptime further suggests distraction."}]
+2025-09-15 23:37:28,881 | DEBUG    | firstBrain | Final decision: <think>
+Okay, so I'm trying to figure out whether the user's browser activity is productive or distracting. The user has two tabs open, both are YouTube with the same URL. The initial analysis gave them a confidence score of 0.8, which is pretty high, suggesting they're likely distracting. The reason given is that it's a generic YouTube URL without specific context, so it's probably for entertainment, and the significant uptime implies distraction.
+
+First, I need to evaluate if the analyst's reason is valid. YouTube can be both educational and entertaining, but without specific context, it's hard to tell. The supplementary info mentions sharing videos, music, movies, and live TV, which leans more towards entertainment. So, the analyst's reason seems valid.
+
+Next, I should consider the user's method. If they're using YouTube for learning, is it the most efficient way? Maybe they're watching tutorials, but YouTube can be full of distractions with recommendations and ads. If they're endlessly searching or watching unrelated videos, that's inefficient. They might be better off using official documentation or specific forums like Stack Overflow for quicker answers.
+
+Looking at the tabs, both are YouTube, and the user has spent over 10 minutes. This could mean they're either taking a break or getting sidetracked. If their main task is work or study, having YouTube open could be a distraction, especially if they're switching between tasks and entertainment.
+
+I should also think about the user's goal. They want to be productive and efficient. If YouTube is for entertainment, it's distracting. If it's for learning, maybe suggest better resources. But without knowing the exact content, it's safer to assume it's distracting given the generic URL.
+
+So, the final decision is that these tabs are distracting. The notification should encourage the user to stay focused and maybe suggest a tool to help them avoid distractions, like the Unhook extension.
+</think>
+
+```json
+{
+  "final_decision": "distracting",
+  "notification_message": "It looks like you're spending time on YouTube. While it can be useful for learning, it might be distracting you from your current task. Consider using tools like official documentation or specific forums for more efficient learning.",
+  "help": "If you wish to stay focused, consider installing the Unhook web extension to minimize distractions."
+}
+```
+Sub-cleaned:  ```json
+{
+  "final_decision": "distracting",
+  "notification_message": "It looks like you're spending time on YouTube. While it can be useful for learning, it might be distracting you from your current task. Consider using tools like official documentation or specific forums for more efficient learning.",
+  "help": "If you wish to stay focused, consider installing the Unhook web extension to minimize distractions."
+}
+```
+Final obj:  {'final_decision': 'distracting', 'notification_message': "It looks like you're spending time on YouTube. While it can be useful for learning, it might be distracting you from your current task. Consider using tools like official documentation or specific forums for more efficient learning.", 'help': 'If you wish to stay focused, consider installing the Unhook web extension to minimize distractions.'}
+2025-09-15 23:37:28,900 | DEBUG    | notification | Notification send with message: It looks like you're spending time on YouTube. While it can be useful for learning, it might be distracting you from your current task. Consider using tools like official documentation or specific forums for more efficient learning. If you wish to stay focused, consider installing the Unhook web extension to minimize distractions.
+2025-09-15 23:39:00,106 | DEBUG    | __main__ | Data received from extension
+2025-09-15 23:39:00,106 | DEBUG    | sqlite | Adding new data
+127.0.0.1 - - [15/Sep/2025 23:39:00] "POST /log-activity HTTP/1.1" 200 -
+2025-09-15 23:41:00,729 | DEBUG    | __main__ | Data received from extension
+2025-09-15 23:41:00,729 | DEBUG    | sqlite | Adding new data
+127.0.0.1 - - [15/Sep/2025 23:41:00] "POST /log-activity HTTP/1.1" 200 -
+2025-09-15 23:42:28,956 | DEBUG    | brainCaller | Reasoning has started.
+2025-09-15 23:42:33,863 | DEBUG    | firstBrain | First Brain response: [{'id': 42, 'title': 'YouTube', 'url': 'https://www.youtube.com/', 'confidence': 0.8, 'reason': 'Generic YouTube URL with no specific educational content indicated in the title.'}, {'id': 43, 'title': 'YouTube', 'url': 'https://www.youtube.com/', 'confidence': 0.8, 'reason': 'Generic YouTube URL with no specific educational content indicated in the title.  Long uptime suggests significant time spent.'}, {'id': 45, 'title': 'Infinite Codes - YouTube', 'url': 'https://www.youtube.com/@InfiniteCodes_', 'confidence': 0.6, 'reason': 'While potentially educational, a general coding YouTube channel could easily lead to unproductive browsing.'}, {'id': 46, 'title': 'Learn Machine Learning Like a GENIUS and Not Waste Time - YouTube', 'url': 'https://www.youtube.com/watch?v=qNxrPri1V0I', 'confidence': 0.2, 'reason': "Potentially productive, but still YouTube;  the title is suggestive of learning but that can't be guaranteed."}]
+2025-09-15 23:42:42,852 | DEBUG    | firstBrain | Final decision: <think>
+Okay, so I'm trying to figure out whether the user's browser activity is productive or distracting. Let me go through each tab one by one.
+
+First, there are two tabs with the title 'YouTube' and the same URL. The initial analysis gave them a confidence of 0.8, which is pretty high. The reason was that it's a generic YouTube URL without specific educational content in the title. The supplementary info mentions things like sharing videos, music, movies, and live TV. That sounds more like entertainment than learning. Also, the long uptime suggests the user spent a lot of time there, which could be a sign of distraction.
+
+Next, there's a tab titled 'Infinite Codes - YouTube' with a confidence of 0.6. The reason here is that while it's a coding channel, it could lead to unproductive browsing. The more info mentions topics like programming and data science, but also some stuff about free spins and games. That mix might mean the user is getting sidetracked with non-educational content.
+
+The last tab is 'Learn Machine Learning Like a GENIUS and Not Waste Time - YouTube' with a lower confidence of 0.2. The title suggests it's educational, but the analyst isn't sure. The more info shows it's a video with a lot of views and some comments from a CS student. However, even though it's potentially productive, it's still on YouTube, which can be a distraction if the user gets sucked into watching more videos.
+
+Putting it all together, the user has multiple YouTube tabs open, some of which are definitely entertainment, and others that are educational but still on a platform known for distractions. The time spent is significant, which indicates that the user might be getting off track, especially if they're switching between different types of content. Even if some of the content is educational, the method of using YouTube might not be the most efficient way to learn. They could be better off using more focused resources like official documentation or structured courses.
+
+So, I think the overall activity is distracting because of the mix of entertainment and the potential for mindless browsing on YouTube, even if some content is educational. The user might not be using the most efficient methods for learning, which could hinder their productivity.
+</think>
+
+```json
+{
+  "final_decision": "distracting",
+  "notification_message": "You have multiple YouTube tabs open, which could be distracting you from your tasks. While some content might be educational, using YouTube can lead to unproductive browsing. Consider using more focused resources for learning.",
+  "help": "Try using the unhook web extension to stay focused and avoid distractions."
+}
+```
+Sub-cleaned:  ```json
+{
+  "final_decision": "distracting",
+  "notification_message": "You have multiple YouTube tabs open, which could be distracting you from your tasks. While some content might be educational, using YouTube can lead to unproductive browsing. Consider using more focused resources for learning.",
+  "help": "Try using the unhook web extension to stay focused and avoid distractions."
+}
+```
+Final obj:  {'final_decision': 'distracting', 'notification_message': 'You have multiple YouTube tabs open, which could be distracting you from your tasks. While some content might be educational, using YouTube can lead to unproductive browsing. Consider using more focused resources for learning.', 'help': 'Try using the unhook web extension to stay focused and avoid distractions.'}
+2025-09-15 23:42:42,866 | DEBUG    | notification | Notification send with message: You have multiple YouTube tabs open, which could be distracting you from your tasks. While some content might be educational, using YouTube can lead to unproductive browsing. Consider using more focused resources for learning. Try using the unhook web extension to stay focused and avoid distractions.
+2025-09-15 23:43:02,414 | DEBUG    | __main__ | Data received from extension
+2025-09-15 23:43:02,415 | DEBUG    | sqlite | Adding new data
+127.0.0.1 - - [15/Sep/2025 23:43:02] "POST /log-activity HTTP/1.1" 200 -
+^CTraceback (most recent call last):
+  File "/home/dipanshu/Desktop/besideYou/source/run_agent.py", line 66, in <module>
+    time.sleep(1)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+2025-09-15 23:43:21,403 | DEBUG    | notification | Notification send with message: Hope you did well

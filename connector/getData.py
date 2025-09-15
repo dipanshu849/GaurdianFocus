@@ -1,12 +1,20 @@
 from flask import Flask, jsonify, request
-import sys
+import sys 
+sys.path.insert(1, "helper/")
 sys.path.insert(1, "database/")
+from logger import get_logger   
+logger = get_logger(__name__)
+
+
+
+# custom
 import sqlite as sq
 
 app = Flask(__name__)
 
 @app.route("/log-activity", methods=['POST'])
-def helloWorld():
+def fetchData():
+    logger.debug("Data received from extension")
     activity_data = request.get_json()
 
     data = []

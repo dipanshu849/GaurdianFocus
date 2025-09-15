@@ -1,15 +1,19 @@
 # standard
 import json
 import os
-import sys
+import sys 
+sys.path.insert(1, "helper/")
 sys.path.insert(1, "tools")
 sys.path.insert(1, "actions")
 import re # removing non-essential parts of response from 2nd brain
-
+import time
+from logger import get_logger   
+logger = get_logger(__name__)
 # installed
 from dotenv import load_dotenv
 from google import genai
 from google.genai import types
+from google.genai import errors as ge
 
 # custom
 import webSearch as ws
@@ -17,6 +21,9 @@ import secondBrain as sb
 from notification import send_notification
 
 load_dotenv()
+
+MAX_RETRY = int(os.getenv('FIRST_BRAIN_MAX_RETRY'))
+NOTIFICATION_TIMEOUT = int(os.getenv('NOTIFICATION_TIMEOUT_FOR_ADVICE'))
 
 client = genai.Client(api_key=os.getenv('GEMINI_API_KEY'))
 
@@ -45,14 +52,28 @@ def analyseData(data):
         }}
     """
 
-    response = client.models.generate_content(
-        model    = "gemini-1.5-flash",
-        contents = prompt,
-        # config   = types.GenerateContentConfig(      # disable thinking
-        #     thinking_config = types.ThinkingConfig(thinking_budget=0)
-        # ),
-    )
-    json_response = json.loads(response.text.strip().replace("```json", "").replace("```", ""))
+    response = None
+
+    for attempt in range(1, MAX_RETRY + 1):
+        try:
+            response = client.models.generate_content(
+            model    = os.getenv('FIRST_BRAIN_MODEL'),
+            contents = prompt,
+                # config   = types.GenerateContentConfig(      # disable thinking
+                #     thinking_config = types.ThinkingConfig(thinking_budget=0)
+                # ),
+            )
+            break;
+
+        except ge.ServerError as e:
+            logger.debug("Gemini overload (attempt %s): %s", attempt, e)
+            if attempt == MAX_RETRY:
+                logger.debug("Gemini still down - skipping this cycle.")
+                return  # abort gracefully
+            time.sleep(2 ** attempt)  # exponential back-off
+
+
+    json_response = json.loads(response.text.strip().replace("```json", "").replace("```", "")) # DO ERROR HANDLING HERE
 
     moreInfo = []
     for categories in json_response:
@@ -60,7 +81,7 @@ def analyseData(data):
             # if (dist_tab["confidence"] < 0.8):
                 moreInfo.append(dist_tab)
 
-    print("First Brain response: ", moreInfo)
+    logger.debug("First Brain response: %s", moreInfo)
 
     finalDecision = None
     if (len(moreInfo) != 0):
@@ -68,8 +89,7 @@ def analyseData(data):
         finalDecision = sb.getFinalSay(addedInfoTabs)
 
     if finalDecision:
-        print("In first brain")
-        print(finalDecision)
+        logger.debug("Final decision: %s", finalDecision)
         json_part = re.sub(r'<think>.*?</think>', '', finalDecision, flags=re.S).strip()
         json_obj  = json.loads(json_part.strip().replace("```json", "").replace("```", ""))
 
@@ -82,7 +102,7 @@ def analyseData(data):
             title   = json_obj["final_decision"]
             message = json_obj["notification_message"] + " " + json_obj["help"]
             
-        send_notification(title, message)
+        send_notification(title, message, NOTIFICATION_TIMEOUT)
 
 
     # else: #

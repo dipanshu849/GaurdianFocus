@@ -1,14 +1,20 @@
 from dotenv import load_dotenv
 from groq import Groq
+from groq import GroqError
 import os
+import sys 
+sys.path.insert(1, "helper/")
 
 load_dotenv()
+
+from logger import get_logger   
+logger = get_logger(__name__)
 
 client = Groq(
     api_key = os.getenv("GROQ_API_KEY")
 )
 
-def getFinalSay(data):
+def getFinalSay(data):    # Error handling left
     chat_completion = client.chat.completions.create(
         messages=[
             {
@@ -58,12 +64,12 @@ def getFinalSay(data):
                 ),
             }
         ],
-        model="deepseek-r1-distill-llama-70b",
-        temperature=0.2,          # keep it deterministic
-        max_tokens=1500,
+        model=os.getenv('SECOND_BRAIN_MODEL'),
+        temperature=float(os.getenv('SECOND_BRAIN_TEMPERATURE')),          # keep it deterministic
+        max_tokens=int(os.getenv('SECOND_BRAIN_MAX_OUTPUT_TOKEN')),
     )
-    print("TOKENS used: ", chat_completion)
-    print("*******************************")
+    # print("TOKENS used: ", chat_completion)
+    # print("*******************************")
     return chat_completion.choices[0].message.content
 
 

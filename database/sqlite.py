@@ -1,7 +1,34 @@
 import sqlite3
 import time
+import os
+import sys 
+sys.path.insert(1, "helper/")
+from dotenv import load_dotenv
+load_dotenv()
+# os.getenv('GEMINI_API_KEY')
+from logger import get_logger   
+logger = get_logger(__name__)
+
+WAIT_TIME = int(os.getenv('WAIT_TIME_TO_CHANGE_ACTIVE_TO_INACTIVE'))
+
+def cleanTable():
+    logger.debug("Clearing the session [Deleting all rows of database]")
+    conn = None
+    try:
+        conn = sqlite3.connect("currMemory.db")
+        cur  = conn.cursor()
+
+        query = "DELETE FROM tabs"
+
+        cur.execute(query)
+
+    finally:
+        if conn:
+            conn.commit()
+            conn.close()
 
 def addData(data): # [(id, title, url, isActive, startTime, uptime), (), ...]
+    logger.debug("Adding new data")
     conn = None
     try:
         conn = sqlite3.connect("currMemory.db")
@@ -40,7 +67,7 @@ def addData(data): # [(id, title, url, isActive, startTime, uptime), (), ...]
 
                 elif (ISACTIVE_P == True and ISACTIVE == False): # prev active now inactive
                     currentTimeStamp = time.time()
-                    if (STARTTIME_P + UPTIME_P - currentTimeStamp >= 10 * 60): # more than 10 minutes have passed since then
+                    if (STARTTIME_P + UPTIME_P - currentTimeStamp >= WAIT_TIME): # more than 10 minutes have passed since then
                         query = (f"UPDATE tabs "
                                 f"SET startTime = {STARTTIME}, isActive = False, upTime = 0 "
                                 f"WHERE id=?")
@@ -51,8 +78,8 @@ def addData(data): # [(id, title, url, isActive, startTime, uptime), (), ...]
                         # as if the switch was small 
                         # the first IF will be execute and uptime will be counted
 
-                elif (ISACTIVE_P == FALSE and ISACTIVE == TRUE):
-                    upTime = STARTTIME - STARTIME_P
+                elif (ISACTIVE_P == False and ISACTIVE == True):
+                    upTime = STARTTIME - STARTTIME_P
                     query = (f"UPDATE tabs "
                             f"SET upTime = {upTime} "
                             f"WHERE id=?")
