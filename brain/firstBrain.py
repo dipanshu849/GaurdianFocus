@@ -9,10 +9,12 @@ import re # removing non-essential parts of response from 2nd brain
 import time
 from logger import get_logger   
 logger = get_logger(__name__)
+from file_logger import log_event
+
 # installed
 from dotenv import load_dotenv
 from google import genai
-from google.genai import types
+# from google.genai import types
 from google.genai import errors as ge
 
 # custom
@@ -68,8 +70,10 @@ def analyseData(data):
         except ge.ServerError as e:
             logger.debug("Gemini overload (attempt %s): %s", attempt, e)
             if attempt == MAX_RETRY:
+                log_event("first_brain_error", f"Still down skipping this cycle")
                 logger.debug("Gemini still down - skipping this cycle.")
                 return  # abort gracefully
+            log_event("first_brain_error", f"Retrying attempt: {attempt}")
             time.sleep(2 ** attempt)  # exponential back-off
 
 
@@ -81,20 +85,25 @@ def analyseData(data):
             # if (dist_tab["confidence"] < 0.8):
                 moreInfo.append(dist_tab)
 
+    log_event("first_brain_response", f"Got response: {moreInfo}")
+
     logger.debug("First Brain response: %s", moreInfo)
 
     finalDecision = None
     if (len(moreInfo) != 0):
         addedInfoTabs = getMoreData(moreInfo)
+        log_event("web_search", "More information from google search added")
         finalDecision = sb.getFinalSay(addedInfoTabs)
 
     if finalDecision:
-        logger.debug("Final decision: %s", finalDecision)
         json_part = re.sub(r'<think>.*?</think>', '', finalDecision, flags=re.S).strip()
         json_obj  = json.loads(json_part.strip().replace("```json", "").replace("```", ""))
+        
+        logger.debug("Final decision: %s", json_obj)
+        log_event("second_brain_response", f"Got response: {json_obj}")
 
-        print("Sub-cleaned: ",json_part)
-        print("Final obj: ", json_obj)
+        # print("Sub-cleaned: ",json_part)
+        # print("Final obj: ", json_obj)
 
         if json_obj["final_decision"] and json_obj["notification_message"]:
             if not json_obj["help"]:

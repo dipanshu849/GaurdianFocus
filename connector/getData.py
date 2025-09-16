@@ -4,6 +4,7 @@ sys.path.insert(1, "helper/")
 sys.path.insert(1, "database/")
 from logger import get_logger   
 logger = get_logger(__name__)
+from file_logger import log_event
 
 
 
@@ -24,6 +25,7 @@ def fetchData():
 
         data.append(tupleCurr)
 
+    log_event("data_arrived", f"Received data for {len(data)} tabs.")
     sq.addData(data)
 
     return jsonify({"status": "ok"}), 200

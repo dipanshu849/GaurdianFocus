@@ -1,0 +1,38 @@
+{"time": "2025-09-16T21:26:09.554615", "event": "notification_sent", "data": "Title: {title} message: {message}"}
+{"time": "2025-09-16T21:26:29.692419", "event": "notification_sent", "data": "Title: {title} message: {message}"}
+{"time": "2025-09-16T21:26:39.426004", "event": "Data_arrived", "data": "Received data for 12 tabs."}
+{"time": "2025-09-16T21:26:39.428311", "event": "Data_updated", "data": "Removed tabs: 0 New added tabs: 12"}
+{"time": "2025-09-16T21:28:39.420580", "event": "Data_arrived", "data": "Received data for 12 tabs."}
+{"time": "2025-09-16T21:28:39.429274", "event": "Data_updated", "data": "Removed tabs: 0 New added tabs: 0"}
+{"time": "2025-09-16T21:30:39.418332", "event": "data_arrived", "data": "Received data for 12 tabs."}
+{"time": "2025-09-16T21:30:39.426415", "event": "data_updated", "data": "Removed tabs: 0 New added tabs: 0"}
+{"time": "2025-09-16T21:31:29.737422", "event": "first_brain", "data": "Reasoning started"}
+{"time": "2025-09-16T21:31:31.810334", "event": "first_brain_response", "data": "Got response: []"}
+{"time": "2025-09-16T21:32:39.417880", "event": "data_arrived", "data": "Received data for 12 tabs."}
+{"time": "2025-09-16T21:32:39.426822", "event": "data_updated", "data": "Removed tabs: 0 New added tabs: 0"}
+{"time": "2025-09-16T21:34:39.418260", "event": "data_arrived", "data": "Received data for 12 tabs."}
+{"time": "2025-09-16T21:34:39.427857", "event": "data_updated", "data": "Removed tabs: 0 New added tabs: 0"}
+{"time": "2025-09-16T21:36:31.876734", "event": "first_brain", "data": "Reasoning started"}
+{"time": "2025-09-16T21:36:34.719232", "event": "first_brain_response", "data": "Got response: []"}
+{"time": "2025-09-16T21:36:39.761404", "event": "data_arrived", "data": "Received data for 12 tabs."}
+{"time": "2025-09-16T21:36:39.763557", "event": "data_updated", "data": "Removed tabs: 0 New added tabs: 0"}
+{"time": "2025-09-16T21:38:39.761328", "event": "data_arrived", "data": "Received data for 13 tabs."}
+{"time": "2025-09-16T21:38:39.769580", "event": "data_updated", "data": "Removed tabs: 0 New added tabs: 1"}
+{"time": "2025-09-16T21:40:42.447815", "event": "data_arrived", "data": "Received data for 13 tabs."}
+{"time": "2025-09-16T21:40:42.455507", "event": "data_updated", "data": "Removed tabs: 0 New added tabs: 0"}
+{"time": "2025-09-16T21:41:34.780629", "event": "first_brain", "data": "Reasoning started"}
+{"time": "2025-09-16T21:41:41.001904", "event": "first_brain_response", "data": "Got response: [{'id': 56, 'title': 'Instagram', 'confidence': 0.9, 'reason': 'Instagram is a social media platform, generally considered distracting.'}]"}
+{"time": "2025-09-16T21:41:42.306136", "event": "web_search", "data": "More information from google search added"}
+{"time": "2025-09-16T21:41:45.205059", "event": "second_brain_response", "data": "Got response: {'final_decision': 'distracting', 'notification_message': 'Instagram can be distracting and hinder your productivity. Consider using time management tools to help you stay focused.', 'help': \"Try using the 'StayFocusd' Chrome extension to limit your time on distracting websites.\"}"}
+{"time": "2025-09-16T21:41:45.221907", "event": "notification_sent", "data": "Title: {title} message: {message}"}
+{"time": "2025-09-16T21:42:46.013574", "event": "data_arrived", "data": "Received data for 13 tabs."}
+{"time": "2025-09-16T21:42:46.022065", "event": "data_updated", "data": "Removed tabs: 0 New added tabs: 0"}
+{"time": "2025-09-16T21:44:50.192369", "event": "data_arrived", "data": "Received data for 13 tabs."}
+{"time": "2025-09-16T21:44:50.200978", "event": "data_updated", "data": "Removed tabs: 0 New added tabs: 0"}
+{"time": "2025-09-16T21:46:45.283016", "event": "first_brain", "data": "Reasoning started"}
+{"time": "2025-09-16T21:46:47.326613", "event": "first_brain_response", "data": "Got response: [{'id': 56, 'title': 'Instagram', 'reason': 'Instagram is a social media platform, generally considered distracting.', 'confidence': 0.9}]"}
+{"time": "2025-09-16T21:46:48.799176", "event": "web_search", "data": "More information from google search added"}
+{"time": "2025-09-16T21:46:50.838771", "event": "data_arrived", "data": "Received data for 13 tabs."}
+{"time": "2025-09-16T21:46:50.847425", "event": "data_updated", "data": "Removed tabs: 0 New added tabs: 0"}
+{"time": "2025-09-16T21:46:53.299975", "event": "second_brain_response", "data": "Got response: {'final_decision': 'distracting', 'notification_message': 'Instagram can be distracting and hinder your productivity. Consider using website blockers to stay focused on your tasks.', 'help': 'Install the Unhook extension to block distracting websites and maintain your focus.'}"}
+{"time": "2025-09-16T21:26:29.692419", "event": "notification_sent", "data": "Title: {title} message: {message}"}

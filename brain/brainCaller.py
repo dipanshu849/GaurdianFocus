@@ -5,6 +5,8 @@ sys.path.insert(1, "helper/")
 import firstBrain as fb
 from logger import get_logger   
 logger = get_logger(__name__)
+from file_logger import log_event
+
 
 
 def startReasoning():
@@ -23,10 +25,11 @@ def startReasoning():
 
         for row in rows:
             row = list(row)
-            row[5] = (row[5] / 60000)    # need rechecking
+            row[5] = (row[5] / 60_000)    # need rechecking
             data.append(row)
 
         if len(data) != 1:
+            log_event("first_brain", f"Reasoning started")
             fb.analyseData(data)
         else:
             logger.debug("There is not data to reason.")

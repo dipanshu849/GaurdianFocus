@@ -7,6 +7,7 @@ sys.path.append('venv/lib/python3.12/site-packages')
 
 from logger import get_logger   
 logger = get_logger(__name__)
+from file_logger import log_event
 
 
 from plyer import notification # Android, Windows, macOS, Linux
@@ -20,6 +21,7 @@ def send_notification(title, message, time):
         timeout = time
     )    
     logger.debug("Notification send with message: %s", message)
+    log_event("notification_sent", f"Title: {title} message: {message}")
 
 
 

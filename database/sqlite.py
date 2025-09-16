@@ -8,6 +8,8 @@ load_dotenv()
 # os.getenv('GEMINI_API_KEY')
 from logger import get_logger   
 logger = get_logger(__name__)
+from file_logger import log_event
+
 
 WAIT_TIME = int(os.getenv('WAIT_TIME_TO_CHANGE_ACTIVE_TO_INACTIVE'))
 
@@ -38,6 +40,7 @@ def addData(data): # [(id, title, url, isActive, startTime, uptime), (), ...]
         response = cur.execute(prevTabIdsQuery)
         allPrevTabIds = set(response.fetchall())
 
+        new_added_tabs = 0
         for req in data:
             searchQuery = "SELECT * FROM tabs WHERE id=?"
             cur.execute(searchQuery, (req[0],))
@@ -87,15 +90,20 @@ def addData(data): # [(id, title, url, isActive, startTime, uptime), (), ...]
                 cur.execute(query, (ID,))
                 
             else:
+                new_added_tabs += 1
                 cur.execute("INSERT INTO tabs VALUES (?, ?, ?, ?, ?, ?)", req)
     
+        removed_tabs = 0
         # Delete the data about closed tab
         for i in allPrevTabIds:
             query = (f"DELETE FROM tabs "
                     f"WHERE id=?")
             cur.execute(query, i)
+            removed_tabs += 1
             
         conn.commit()
+        log_event("data_updated", f"Removed tabs: {removed_tabs} New added tabs: {new_added_tabs}")
+
 
     except sqlite3.Error as error:
         print("Error occured: ", error)
