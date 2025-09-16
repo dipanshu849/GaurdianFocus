@@ -12,6 +12,7 @@ import threading
 
 from logger import get_logger   
 logger = get_logger(__name__)
+from file_logger import log_event
 
 import notification as ntf
 import brainCaller as bc
@@ -22,7 +23,15 @@ from dotenv import load_dotenv
 load_dotenv()
 # os.getenv('GEMINI_API_KEY')
 
+COUNTER_FILE = "state_handler/counter.txt"
+LOG_FILE     = "events.jsonl"
+
 cleanTable() # REMOVE PREVIOUS DATA
+with open(LOG_FILE, "w") as f:
+    pass
+with open(COUNTER_FILE, 'w') as f:
+    f.write(f"0\n")
+log_event("start", "Guardina is watching you")
 
 PYTHON_EXECUTABLE            = sys.executable # to ensure it uses the same Python interpreter
 GET_DATA_SCRIPT              = "connector/getData.py"
@@ -36,6 +45,7 @@ def cleanUp():
         listener_process.wait()
 
     ntf.send_notification("Guardian OFF", "Hope you did well", 20)
+    log_event("end", "Guardina is OFF")
 
 atexit.register(cleanUp)
 
@@ -66,5 +76,5 @@ try:
         time.sleep(1)
 
 except KeyboardInterrupt:
-    ntf.send_notification("Guardian @_@", "Some error occured", 20)
+    # ntf.send_notification("Guardian @_@", "Some error occured", 20)
     logger.debug("Process terminated")

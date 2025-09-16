@@ -70,10 +70,10 @@ def analyseData(data):
         except ge.ServerError as e:
             logger.debug("Gemini overload (attempt %s): %s", attempt, e)
             if attempt == MAX_RETRY:
-                log_event("first_brain_error", f"Still down skipping this cycle")
                 logger.debug("Gemini still down - skipping this cycle.")
+                log_event("skip", f"Gemini still down - skipping this cycle.")
                 return  # abort gracefully
-            log_event("first_brain_error", f"Retrying attempt: {attempt}")
+            log_event("first_brain_error", f"Error occured retrying attempt: {attempt}")
             time.sleep(2 ** attempt)  # exponential back-off
 
 
@@ -90,6 +90,10 @@ def analyseData(data):
     logger.debug("First Brain response: %s", moreInfo)
 
     finalDecision = None
+
+    if (len(moreInfo) == 0):
+        log_event("no_action", f"First brain found all tabs to be productive")
+
     if (len(moreInfo) != 0):
         addedInfoTabs = getMoreData(moreInfo)
         log_event("web_search", "More information from google search added")
