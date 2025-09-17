@@ -130,11 +130,13 @@ Created UI [With streamlit]
 | **Graphviz**                       | Workflow diagram    | Generates graphs of agent pipeline at runtime → embed in Streamlit for instant explainability.                 |
 
 ## Setup Instructions
+NOTE: Tested on linux
 The project has two independent parts:
 1. **Core Agent (data collection + AI reasoning)**
 2. **Optional Monitor UI (real-time dashboard)**
 
  ### Core Agent
+  - Linux
   - Python
   - Mozilla Firefox
   - Git
@@ -144,13 +146,12 @@ The project has two independent parts:
   ```bash
       # 1. Clone
       git clone https://github.com/dipanshu849/GaurdianFocus.git
+      cd GaurdianFocus
       # 2. Virtual environment
       python3 -m venv venv # check which python or python3
   ```
   ```bash
-      # Windows
-      .\venv\Scripts\activate
-      # macOS / Linux
+      # Linux
       source venv/bin/activate
   ```
   ```bash
