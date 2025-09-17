@@ -65,11 +65,10 @@ Created UI [With streamlit]
 ## System Architecture
 <table>
   <tr>
-    <td width="50%" valign="top">
-      <img src="assests/diagram.svg" alt="Demo of my project">
-    </td>
+     <img src="assests/diagram.svg" width="50%">
   </tr>
 </table>
+
 
 
 ### Workflow
@@ -109,3 +108,81 @@ Created UI [With streamlit]
 7. **Actions (actions/notification.py):** Executes the final decision by sending a cross-platform desktop notification to the user.
 
 8. **Monitoring UI (UI/):** A Streamlit web dashboard that provides a live, visual monitor of the agent's execution plan.
+
+## Technology Stack
+| Technology                         | Area                | Reason for Choice                                                                                               |
+| ---------------------------------- | ------------------- | --------------------------------------------------------------------------------------------------------------- |
+| **Python**                         | Backend             | De-facto language for AI/ML; huge ecosystem (`groq`, `google-genai`, `schedule`, etc.) and cross-platform.      |
+| **JavaScript (WebExtensions API)** | Extension           | Only way to access browser tabs/events.                               |
+| **Flask**                          | API                 | One-file, zero-config REST endpoint for `/log-activity`; lighter than FastAPI for a single route.               |
+| **SQLite**                         | Database            | Server-less, file-based, ships with Python → no credentials, clone-and-run.                          |
+| **Gemini-1.5-Flash**               | AI (1st brain)      | 1 M token context, **≤ 1 500 RPM** free tier, lowest latency & cost → perfect for high-frequency first pass.    |
+| **DeepSeek-R1-Distill-Llama-70b**  | AI (2nd brain)      | 70 B reasoning-tuned model on Groq → **30 RPM / 1 K RPD** quota, **6 K TPM**, far stronger critique than Flash. |
+| **Streamlit**                      | Monitor UI          | Pure-Python, 20-line dashboard for table + logs; no JS/HTML boiler-plate.                                       |
+| **Graphviz**                       | Workflow diagram    | Generates graphs of agent pipeline at runtime → embed in Streamlit for instant explainability.                 |
+
+## Setup Instructions
+The project has two independent parts:
+1. **Core Agent (data collection + AI reasoning)**
+2. **Optional Monitor UI (real-time dashboard)**
+
+1. ### Core Agent
+  - Python
+  - Mozilla Firefox
+  - Git
+
+  ```bash
+      # 1. Clone
+      git clone https://github.com/YOU/guardian-agent.git
+      # 2. Virtual environment
+      python -m venv venv
+  ```
+  ```bash
+      # Windows
+      .\venv\Scripts\activate
+      # macOS / Linux
+      source venv/bin/activate
+  ```
+  ```bash
+      # 3. Dependencies
+      pip install -r requirements.txt
+  ```
+  #### Loading extension
+  1. Open application menu in firefox
+  2. Go to more tools options (at bottom)
+  3. Choose remote debugging
+  4. Choose 'this firefox' option in the side panel
+  5. Click on 'Load temporary add-on'
+  6. Go to the extension folder of cloned repo
+  7. And choose the manifest.json file
+  8. Done
+
+  #### Starting agent
+  1. Simple run:
+     ```bash
+        python3 run_agent.py # check for python or python3
+     ```
+  2. With more info:
+     ```bash
+        LOG_LEVEL=DEBUG python3 run_agent.py
+     ```
+2. ### Core Agent
+   #### Extra prerequisites
+   - Graphviz system package (needed for the live workflow diagram)
+   #### Install graphviz
+   | OS               | Command                                                                                     |
+    | ---------------- | ------------------------------------------------------------------------------------------- |
+    | macOS (Homebrew) | `brew install graphviz`                                                                     |
+    | Ubuntu / Debian  | `sudo apt update && sudo apt install graphviz`                                              |
+    | Windows (scoop)  | `scoop install graphviz`                                                                    |
+   | Windows (winget)  | `winget install graphviz`                                                                    |
+    | Windows (manual) | Download installer → **tick “Add to PATH”** or add `C:\Program Files\Graphviz\bin` yourself |
+   #### Run dashboard
+   - Open second terminal (keep the first one running)
+   - ```bash
+       streamlit run UI/app.py
+     ```
+
+## Deliverables
+1. Interaction logs: I are using a work or school account (which not allow public sharing)
+   But I have included all the screenshots of interaction logs in the google drive link
