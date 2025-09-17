@@ -23,6 +23,7 @@
 </table>
 
 ## Output
+Screenshots Taken during development process.
 <table>
   <tr>
     <td width="50%">
@@ -38,6 +39,25 @@
     </td>
     <td width="50%" valign="top">
       <img src="assests/4.png" alt="Demo of my project">
+    </td>
+  </tr>
+</table>
+Created UI [With streamlit]
+<table>
+  <tr>
+    <td width="50%">
+      <img src="assests/5.png" alt="Demo of my project">
+    </td>
+    <td width="50%" valign="top">
+      <img src="assests/6.png" alt="Demo of my project">
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="assests/7.png" alt="Demo of my project">
+    </td>
+    <td width="50%" valign="top">
+      <img src="assests/8.png" alt="Demo of my project">
     </td>
   </tr>
 </table>
