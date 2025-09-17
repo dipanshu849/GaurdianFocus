@@ -180,13 +180,14 @@ The project has two independent parts:
    #### Extra prerequisites
    - Graphviz system package (needed for the live workflow diagram)
    #### Install graphviz
-   | OS               | Command                                                                                     |
-    | ---------------- | ------------------------------------------------------------------------------------------- |
-    | macOS (Homebrew) | `brew install graphviz`                                                                     |
-    | Ubuntu / Debian  | `sudo apt update && sudo apt install graphviz`                                              |
-    | Windows (scoop)  | `scoop install graphviz`                                                                    |
-   | Windows (winget)  | `winget install graphviz`                                                                    |
-    | Windows (manual) | Download installer → **tick “Add to PATH”** or add `C:\Program Files\Graphviz\bin` yourself |
+   
+| OS               | Command                                                                                      |
+|------------------|---------------------------------------------------------------------------------------------|
+| macOS (Homebrew) | `brew install graphviz`                                                                     |
+| Ubuntu / Debian  | `sudo apt update && sudo apt install graphviz`                                              |
+| Windows (scoop)  | `scoop install graphviz`                                                                    |
+| Windows (winget) | `winget install graphviz`                                                                   |
+| Windows (manual) | Download installer → **tick “Add to PATH”** or add `C:\Program Files\Graphviz\bin` yourself |
    #### Run dashboard
    - Open second terminal (keep the first one running)
    - ```bash
@@ -196,4 +197,4 @@ The project has two independent parts:
 ## Deliverables
 1. Interaction logs: I are using a work or school account (which not allow public sharing)
    But I have included all the screenshots of interaction logs in the google drive link
-    [📂 Google Drive folder](https://drive.google.com/drive/folders/YOUR_FOLDER_ID?usp=sharing](https://drive.google.com/drive/folders/1f1c9BSmiEr-S--Pcgm8P__UhMEN6-3qw?usp=sharing)
+    [📂 Google Drive folder](https://drive.google.com/drive/folders/1f1c9BSmiEr-S--Pcgm8P__UhMEN6-3qw?usp=sharing)
