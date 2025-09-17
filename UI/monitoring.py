@@ -2,6 +2,7 @@ import streamlit as st
 import json
 import graphviz
 from streamlit_autorefresh import st_autorefresh
+import time
 # REF: https://github.com/kmcgrady/streamlit-autorefresh
 
 "## LIVE MONITORING OF GUARDIAN"
@@ -53,24 +54,32 @@ AGENT_ARCHITECTURE = {
 COUNTER_FILE = "state_handler/counter.txt"
 LOG_FILE     = "events.jsonl"
 
+with open(COUNTER_FILE, 'w') as f:
+    f.write(f"0\n")
+
 graph_holder = st.empty()
 
-st_autorefresh(interval=5000, limit=None, key="refresher")
+# st_autorefresh(interval=5000, limit=None, key="refresher")
 
 def draw_graph(event):
     # REF: https://graphviz.org/docs/attrs/fontsize/
     dot = graphviz.Digraph(comment='Agent Workflow')
     dot.attr(rankdir='TB', bgcolor='transparent', fontname='Helvetica', fontcolor='white')
     dot.attr('node', shape='box', style='rounded,filled', fillcolor='#000100', color='#6366F1', fontname='Helvetica', fontcolor='white')
-    dot.attr('edge', color='white')
+    dot.attr('edge', color='#000110')
 
     for node in AGENT_ARCHITECTURE['nodes']:
         if node == event:
             dot.node(node, color='red', fillcolor='#000010', fontcolor='white', penwidth='1')
+        elif node in ["listening", "waiting"] and event not in [None, "end"]:
+            dot.node(node, color='red', fontcolor='white', penwidth='2')
         else:
             dot.node(node)
 
     for edge in AGENT_ARCHITECTURE['edges']:
+        if edge[0] == event:
+            dot.edge(edge[0], edge[1], color='white')
+        else:
             dot.edge(edge[0], edge[1])
 
     return dot
@@ -78,6 +87,7 @@ def draw_graph(event):
 with st.container(horizontal_alignment="center"):
     graph_holder.graphviz_chart(draw_graph(None))
 
+@st.fragment(run_every="10s")
 def load_events():
     expander_counter = 0
     event_counter    = 0
@@ -112,6 +122,7 @@ def load_events():
                         graph_holder.graphviz_chart(draw_graph(event.get("event")))
                         with open(COUNTER_FILE, 'w') as f:
                             f.write(f"{event_reader}\n")
+                        time.sleep(1)
 
                     if event.get("event") == "notification_sent":
                         condn = True

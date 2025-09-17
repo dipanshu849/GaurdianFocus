@@ -1,0 +1,2 @@
+# The idea was to use not just extension but the user open applications
+# maybe in the future

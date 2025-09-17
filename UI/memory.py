@@ -5,7 +5,7 @@ import numpy as np
 
 "## Memory"
 
-
+st.button("Refresh")
 def load_table():
     conn = None
 
