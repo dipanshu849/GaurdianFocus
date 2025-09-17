@@ -184,11 +184,7 @@ The project has two independent parts:
    
 | OS               | Command                                                                                      |
 |------------------|---------------------------------------------------------------------------------------------|
-| macOS (Homebrew) | `brew install graphviz`                                                                     |
 | Ubuntu / Debian  | `sudo apt update && sudo apt install graphviz`                                              |
-| Windows (scoop)  | `scoop install graphviz`                                                                    |
-| Windows (winget) | `winget install graphviz`                                                                   |
-| Windows (manual) | Download installer → **tick “Add to PATH”** or add `C:\Program Files\Graphviz\bin` yourself |
    #### Run dashboard
    - Open second terminal (keep the first one running)
    - ```bash
