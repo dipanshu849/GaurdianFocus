@@ -1,15 +1,14 @@
-from flask import Flask, jsonify, request
 import sys 
-sys.path.insert(1, "helper/")
-sys.path.insert(1, "database/")
+import sqlite as sq
+from flask import Flask, jsonify, request
 from logger import get_logger   
-logger = get_logger(__name__)
 from file_logger import log_event
 
 
+sys.path.insert(1, "helper/")
+sys.path.insert(1, "database/")
 
-# custom
-import sqlite as sq
+logger = get_logger(__name__)
 
 app = Flask(__name__)
 

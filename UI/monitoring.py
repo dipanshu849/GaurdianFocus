@@ -1,8 +1,8 @@
 import streamlit as st
 import json
 import graphviz
-from streamlit_autorefresh import st_autorefresh
 import time
+from streamlit_autorefresh import st_autorefresh
 # REF: https://github.com/kmcgrady/streamlit-autorefresh
 
 "## LIVE MONITORING OF GUARDIAN"
@@ -50,7 +50,6 @@ AGENT_ARCHITECTURE = {
     ]
 }
 
-# st.button("Refresh")
 COUNTER_FILE = "state_handler/counter.txt"
 LOG_FILE     = "events.jsonl"
 
@@ -58,8 +57,6 @@ with open(COUNTER_FILE, 'w') as f:
     f.write(f"0\n")
 
 graph_holder = st.empty()
-
-# st_autorefresh(interval=5000, limit=None, key="refresher")
 
 def draw_graph(event):
     # REF: https://graphviz.org/docs/attrs/fontsize/

@@ -1,41 +1,40 @@
 import subprocess
 import sys 
-sys.path.insert(1, "helper/")
-sys.path.insert(1, "actions/")
-sys.path.insert(1, "brain/")
-sys.path.insert(1, "database/")
-# sys.path.insert(1, "connector/")
 import time
 import atexit 
 import schedule
 import threading
-
-from logger import get_logger   
-logger = get_logger(__name__)
-from file_logger import log_event
-
 import notification as ntf
 import brainCaller as bc
-from sqlite import cleanTable
-
 import os
+from logger import get_logger   
+from file_logger import log_event
+from sqlite import cleanTable
 from dotenv import load_dotenv
+
+sys.path.insert(1, "helper/")
+sys.path.insert(1, "actions/")
+sys.path.insert(1, "brain/")
+sys.path.insert(1, "database/")
+logger = get_logger(__name__)
 load_dotenv()
-# os.getenv('GEMINI_API_KEY')
 
 COUNTER_FILE = "state_handler/counter.txt"
 LOG_FILE     = "events.jsonl"
 
-cleanTable() # REMOVE PREVIOUS DATA
+# REMOVE PREVIOUS DATA
+cleanTable() 
 with open(LOG_FILE, "w") as f:
     pass
 with open(COUNTER_FILE, 'w') as f:
     f.write(f"0\n")
+
 log_event("start", "Guardina is watching you")
 
 PYTHON_EXECUTABLE            = sys.executable # to ensure it uses the same Python interpreter
 GET_DATA_SCRIPT              = "connector/getData.py"
 GUARDIAN_CHECK_INTERVAL_TIME_MINUTE = int(os.getenv('GUARDIAN_RUN_INTERVAL_TIME_MINUTE'))
+NOTIFICATION_TIMEOUT_ON_OFF  = int(os.getenv('NOTIFICATION_TIMEOUT_FOR_ON_OFF'))
 
 listener_process  = None
 
@@ -44,7 +43,7 @@ def cleanUp():
         listener_process.terminate()
         listener_process.wait()
 
-    ntf.send_notification("Guardian OFF", "Hope you did well", 20)
+    ntf.send_notification("Guardian OFF", "Hope you did well", NOTIFICATION_TIMEOUT_ON_OFF)
     log_event("end", "Guardina is OFF")
 
 atexit.register(cleanUp)
@@ -70,7 +69,7 @@ try:
     scheduler_thread  = threading.Thread(target=run_scheduler, daemon=True)
     scheduler_thread.start()
 
-    ntf.send_notification("Guardian ON", "I Will be there for help", 20)
+    ntf.send_notification("Guardian ON", "I Will be there for help", NOTIFICATION_TIMEOUT_ON_OFF)
 
     while True:
         time.sleep(1)

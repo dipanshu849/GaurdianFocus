@@ -12,3 +12,6 @@ def log_event(event_type, data):
 
     with open(LOG_FILE, "a") as f:
         f.write(json.dumps(log_entry) + "\n")
+
+
+## The file generated here is used for streamlit monitoring feature

@@ -2,14 +2,13 @@ import sqlite3
 import time
 import os
 import sys 
-sys.path.insert(1, "helper/")
 from dotenv import load_dotenv
-load_dotenv()
-# os.getenv('GEMINI_API_KEY')
 from logger import get_logger   
-logger = get_logger(__name__)
 from file_logger import log_event
 
+sys.path.insert(1, "helper/")
+load_dotenv()
+logger = get_logger(__name__)
 
 WAIT_TIME = int(os.getenv('WAIT_TIME_TO_CHANGE_ACTIVE_TO_INACTIVE'))
 
@@ -70,7 +69,7 @@ def addData(data): # [(id, title, url, isActive, startTime, uptime), (), ...]
 
                 elif (ISACTIVE_P == True and ISACTIVE == False): # prev active now inactive
                     currentTimeStamp = time.time()
-                    if (STARTTIME_P + UPTIME_P - currentTimeStamp >= WAIT_TIME): # more than 10 minutes have passed since then
+                    if (STARTTIME_P + UPTIME_P - currentTimeStamp >= WAIT_TIME): # more than 10 (or custom) minutes have passed since then
                         query = (f"UPDATE tabs "
                                 f"SET startTime = {STARTTIME}, isActive = False, upTime = 0 "
                                 f"WHERE id=?")

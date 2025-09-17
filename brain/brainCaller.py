@@ -1,13 +1,12 @@
 import sqlite3
 import time
 import sys 
-sys.path.insert(1, "helper/")
 import firstBrain as fb
 from logger import get_logger   
-logger = get_logger(__name__)
 from file_logger import log_event
 
-
+sys.path.insert(1, "helper/")
+logger = get_logger(__name__)
 
 def startReasoning():
     logger.debug("Reasoning has started.")
@@ -25,7 +24,7 @@ def startReasoning():
 
         for row in rows:
             row = list(row)
-            row[5] = (row[5] / 60_000)    # need rechecking
+            row[5] = (row[5] / 60_000)   
             data.append(row)
 
         if len(data) != 1:

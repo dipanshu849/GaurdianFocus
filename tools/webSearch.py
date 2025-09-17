@@ -1,13 +1,13 @@
-from dotenv import load_dotenv
 import os
 import json
 import requests
 import sys 
-sys.path.insert(1, "helper/")
-
+from dotenv import load_dotenv
 from logger import get_logger   
-logger = get_logger(__name__)
 
+
+sys.path.insert(1, "helper/")
+logger = get_logger(__name__)
 load_dotenv()
 
 api_key    = os.getenv('GOOGLE_SEARCH_API_KEY')
@@ -34,7 +34,7 @@ def google_search(query):
 
         return snippets
 
-    except requests.exceptions.RequestException as e:
+    except Exception as e:
         logger.debug("Error during Google Search: %s", e)
         return "Search failed."
 

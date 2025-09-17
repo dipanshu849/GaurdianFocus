@@ -1,5 +1,4 @@
 (function () {
-  // const intervalId = setInterval(sendData, 500000); // Every 5 minutes
   const intervalId = setInterval(sendData, 120000); // Every 2 minutes
 
   function sendData() {
@@ -29,10 +28,9 @@
       body: JSON.stringify(activity_data),
     }).catch((error) => console.error("Error sending data to python: ", error));
   }
-
-  // function cleanUp() {
-  //   setTimeout(() => {
-  //     clearInterval(intervalId);
-  //   }, 10000000);
-  // }
 })();
+
+/*
+    REFRENCES:
+    1. https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension
+*/

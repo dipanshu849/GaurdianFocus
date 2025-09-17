@@ -1,27 +1,26 @@
-# standard
+# 
 import json
 import os
 import sys 
-sys.path.insert(1, "helper/")
-sys.path.insert(1, "tools")
-sys.path.insert(1, "actions")
 import re # removing non-essential parts of response from 2nd brain
 import time
 from logger import get_logger   
-logger = get_logger(__name__)
 from file_logger import log_event
 
-# installed
+#
 from dotenv import load_dotenv
 from google import genai
-# from google.genai import types
 from google.genai import errors as ge
 
-# custom
+#
 import webSearch as ws
 import secondBrain as sb
 from notification import send_notification
 
+sys.path.insert(1, "helper/")
+sys.path.insert(1, "tools")
+sys.path.insert(1, "actions")
+logger = get_logger(__name__)
 load_dotenv()
 
 MAX_RETRY = int(os.getenv('FIRST_BRAIN_MAX_RETRY'))
@@ -61,9 +60,6 @@ def analyseData(data):
             response = client.models.generate_content(
             model    = os.getenv('FIRST_BRAIN_MODEL'),
             contents = prompt,
-                # config   = types.GenerateContentConfig(      # disable thinking
-                #     thinking_config = types.ThinkingConfig(thinking_budget=0)
-                # ),
             )
             break;
 
