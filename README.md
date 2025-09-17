@@ -22,6 +22,14 @@
   </tr>
 </table>
 
+## 📑 Quick Index
+- [Output](#output)
+- [System Architecture](#system-architecture)
+- [Technology Stack](#technology-stack)
+- [Setup Instructions](#setup-instructions)
+- [Deliverables](#deliverables)
+
+
 ## Output
 Screenshots Taken during development process.
 <table>
@@ -126,7 +134,7 @@ The project has two independent parts:
 1. **Core Agent (data collection + AI reasoning)**
 2. **Optional Monitor UI (real-time dashboard)**
 
-1. ### Core Agent
+ ### Core Agent
   - Python
   - Mozilla Firefox
   - Git
@@ -168,7 +176,7 @@ The project has two independent parts:
      ```bash
         LOG_LEVEL=DEBUG python3 run_agent.py
      ```
-2. ### Core Agent
+ ### Monitor UI
    #### Extra prerequisites
    - Graphviz system package (needed for the live workflow diagram)
    #### Install graphviz
@@ -188,4 +196,4 @@ The project has two independent parts:
 ## Deliverables
 1. Interaction logs: I are using a work or school account (which not allow public sharing)
    But I have included all the screenshots of interaction logs in the google drive link
-    [📂 Google Drive folder]([https://drive.google.com/drive/folders/YOUR_FOLDER_ID?usp=sharing](https://drive.google.com/drive/folders/1f1c9BSmiEr-S--Pcgm8P__UhMEN6-3qw?usp=sharing))
+    [📂 Google Drive folder](https://drive.google.com/drive/folders/YOUR_FOLDER_ID?usp=sharing](https://drive.google.com/drive/folders/1f1c9BSmiEr-S--Pcgm8P__UhMEN6-3qw?usp=sharing)
