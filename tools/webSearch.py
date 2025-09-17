@@ -1,12 +1,13 @@
+import sys 
+sys.path.insert(1, "helper/")
+
+
 import os
 import json
 import requests
-import sys 
 from dotenv import load_dotenv
 from logger import get_logger   
 
-
-sys.path.insert(1, "helper/")
 logger = get_logger(__name__)
 load_dotenv()
 

@@ -1,5 +1,11 @@
-import subprocess
 import sys 
+sys.path.insert(1, "helper/")
+sys.path.insert(1, "actions/")
+sys.path.insert(1, "brain/")
+sys.path.insert(1, "database/")
+
+
+import subprocess
 import time
 import atexit 
 import schedule
@@ -12,10 +18,6 @@ from file_logger import log_event
 from sqlite import cleanTable
 from dotenv import load_dotenv
 
-sys.path.insert(1, "helper/")
-sys.path.insert(1, "actions/")
-sys.path.insert(1, "brain/")
-sys.path.insert(1, "database/")
 logger = get_logger(__name__)
 load_dotenv()
 

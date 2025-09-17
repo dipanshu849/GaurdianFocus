@@ -1,0 +1,39 @@
+{"time": "2025-09-17T19:15:02.961113", "event": "start", "data": "Guardina is watching you"}
+{"time": "2025-09-17T19:15:03.132446", "event": "notification_sent", "data": "Title: Guardian ON message: I Will be there for help"}
+{"time": "2025-09-17T19:16:15.689268", "event": "data_arrived", "data": "Received data for 8 tabs."}
+{"time": "2025-09-17T19:16:15.693372", "event": "data_updated", "data": "Removed tabs: 0 New added tabs: 8"}
+{"time": "2025-09-17T19:18:15.684507", "event": "data_arrived", "data": "Received data for 8 tabs."}
+{"time": "2025-09-17T19:18:15.688548", "event": "data_updated", "data": "Removed tabs: 0 New added tabs: 0"}
+{"time": "2025-09-17T19:19:03.024626", "event": "first_brain", "data": "Reasoning started"}
+{"time": "2025-09-17T19:19:04.337108", "event": "first_brain_error", "data": "Error occured retrying attempt: 1"}
+{"time": "2025-09-17T19:19:07.099572", "event": "first_brain_response", "data": "Got response: []"}
+{"time": "2025-09-17T19:19:07.099874", "event": "no_action", "data": "First brain found all tabs to be productive"}
+{"time": "2025-09-17T19:20:25.124613", "event": "data_arrived", "data": "Received data for 7 tabs."}
+{"time": "2025-09-17T19:20:25.133435", "event": "data_updated", "data": "Removed tabs: 1 New added tabs: 0"}
+{"time": "2025-09-17T19:22:26.159178", "event": "data_arrived", "data": "Received data for 7 tabs."}
+{"time": "2025-09-17T19:22:26.168052", "event": "data_updated", "data": "Removed tabs: 0 New added tabs: 0"}
+{"time": "2025-09-17T19:23:07.155036", "event": "first_brain", "data": "Reasoning started"}
+{"time": "2025-09-17T19:23:12.139021", "event": "first_brain_error", "data": "Error occured retrying attempt: 1"}
+{"time": "2025-09-17T19:23:27.922686", "event": "first_brain_response", "data": "Got response: []"}
+{"time": "2025-09-17T19:23:27.923019", "event": "no_action", "data": "First brain found all tabs to be productive"}
+{"time": "2025-09-17T19:24:26.162571", "event": "data_arrived", "data": "Received data for 8 tabs."}
+{"time": "2025-09-17T19:24:26.171314", "event": "data_updated", "data": "Removed tabs: 0 New added tabs: 1"}
+{"time": "2025-09-17T19:26:26.164055", "event": "data_arrived", "data": "Received data for 8 tabs."}
+{"time": "2025-09-17T19:26:26.173804", "event": "data_updated", "data": "Removed tabs: 0 New added tabs: 0"}
+{"time": "2025-09-17T19:27:27.977318", "event": "first_brain", "data": "Reasoning started"}
+{"time": "2025-09-17T19:27:32.847053", "event": "first_brain_error", "data": "Error occured retrying attempt: 1"}
+{"time": "2025-09-17T19:27:37.048300", "event": "first_brain_error", "data": "Error occured retrying attempt: 2"}
+{"time": "2025-09-17T19:27:41.755518", "event": "max_attempt", "data": "Gemini still down - skipping this cycle."}
+{"time": "2025-09-17T19:28:26.162564", "event": "data_arrived", "data": "Received data for 8 tabs."}
+{"time": "2025-09-17T19:28:26.168776", "event": "data_updated", "data": "Removed tabs: 0 New added tabs: 0"}
+{"time": "2025-09-17T19:30:26.388285", "event": "data_arrived", "data": "Received data for 8 tabs."}
+{"time": "2025-09-17T19:30:26.394305", "event": "data_updated", "data": "Removed tabs: 0 New added tabs: 0"}
+{"time": "2025-09-17T19:31:41.800092", "event": "first_brain", "data": "Reasoning started"}
+{"time": "2025-09-17T19:31:43.527142", "event": "first_brain_response", "data": "Got response: [{'id': 45, 'title': 'Instagram', 'confidence': 0.9, 'reason': 'Instagram is a social media platform, generally considered distracting.'}]"}
+{"time": "2025-09-17T19:31:46.092808", "event": "web_search", "data": "More information from google search added"}
+{"time": "2025-09-17T19:31:50.095552", "event": "second_brain_response", "data": "Got response: {'final_decision': 'distracting', 'notification_message': \"Instagram can be distracting. If you're using it for work, consider setting specific goals. Otherwise, it might be pulling you away from your tasks.\", 'help': 'Try using a website blocker like StayFocusd to limit distractions.'}"}
+{"time": "2025-09-17T19:31:50.109536", "event": "notification_sent", "data": "Title: distracting message: Instagram can be distracting. If you're using it for work, consider setting specific goals. Otherwise, it might be pulling you away from your tasks. Try using a website blocker like StayFocusd to limit distractions."}
+{"time": "2025-09-17T19:32:26.500743", "event": "data_arrived", "data": "Received data for 8 tabs."}
+{"time": "2025-09-17T19:32:26.509370", "event": "data_updated", "data": "Removed tabs: 0 New added tabs: 0"}
+{"time": "2025-09-17T19:33:18.647820", "event": "notification_sent", "data": "Title: Guardian OFF message: Hope you did well"}
+{"time": "2025-09-17T19:33:18.647935", "event": "end", "data": "Guardina is OFF"}

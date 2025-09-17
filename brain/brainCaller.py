@@ -1,11 +1,13 @@
+import sys
+sys.path.insert(1, "helper/") 
+
+
 import sqlite3
 import time
-import sys 
 import firstBrain as fb
 from logger import get_logger   
 from file_logger import log_event
 
-sys.path.insert(1, "helper/")
 logger = get_logger(__name__)
 
 def startReasoning():

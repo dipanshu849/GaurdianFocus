@@ -1,11 +1,13 @@
 import sys 
+sys.path.insert(1, "helper/")
+sys.path.append('venv/lib/python3.12/site-packages')
+
+
 from logger import get_logger   
 from file_logger import log_event
 from plyer import notification # Android, Windows, macOS, Linux
 import time
 
-sys.path.insert(1, "helper/")
-sys.path.append('venv/lib/python3.12/site-packages')
 logger = get_logger(__name__)
 
 

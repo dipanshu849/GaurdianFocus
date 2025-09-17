@@ -2,14 +2,13 @@ import streamlit as st
 import json
 import graphviz
 import time
-from streamlit_autorefresh import st_autorefresh
-# REF: https://github.com/kmcgrady/streamlit-autorefresh
 
 "## LIVE MONITORING OF GUARDIAN"
 
 AGENT_ARCHITECTURE = {
     "nodes": [
         "start",
+        "source",
         #
         "listening",
         "data_arrived",
@@ -28,6 +27,7 @@ AGENT_ARCHITECTURE = {
     ],
     "edges": [
         ("start", "listening"),
+        ("source", "listening"),
         ("listening", "data_arrived"),
         ("data_arrived", "data_updated"),
         ("data_updated", "listening"),
@@ -37,7 +37,7 @@ AGENT_ARCHITECTURE = {
         ("first_brain", "first_brain_error"),
         ("first_brain_error", "max_attempt"),
         ("max_attempt", "waiting"),
-        ("first_brain_error", "first_brain"),
+        ("first_brain_error", "first_brain_response"),
         ("first_brain", "first_brain_response"),
         ("first_brain_response", "no_action"),
         ("no_action", "waiting"),

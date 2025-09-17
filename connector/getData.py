@@ -1,12 +1,12 @@
 import sys 
+sys.path.insert(1, "helper/")
+sys.path.insert(1, "database/")
+
+
 import sqlite as sq
 from flask import Flask, jsonify, request
 from logger import get_logger   
 from file_logger import log_event
-
-
-sys.path.insert(1, "helper/")
-sys.path.insert(1, "database/")
 
 logger = get_logger(__name__)
 

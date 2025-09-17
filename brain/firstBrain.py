@@ -1,25 +1,23 @@
-# 
-import json
-import os
 import sys 
-import re # removing non-essential parts of response from 2nd brain
-import time
-from logger import get_logger   
-from file_logger import log_event
-
-#
-from dotenv import load_dotenv
-from google import genai
-from google.genai import errors as ge
-
-#
-import webSearch as ws
-import secondBrain as sb
-from notification import send_notification
-
 sys.path.insert(1, "helper/")
 sys.path.insert(1, "tools")
 sys.path.insert(1, "actions")
+
+
+import json
+import os
+import re # removing non-essential parts of response from 2nd brain
+import time
+import webSearch as ws
+import secondBrain as sb
+from logger import get_logger   
+from file_logger import log_event
+from dotenv import load_dotenv
+from google import genai
+from google.genai import errors as ge
+from notification import send_notification
+
+
 logger = get_logger(__name__)
 load_dotenv()
 
@@ -67,7 +65,7 @@ def analyseData(data):
             logger.debug("Gemini overload (attempt %s): %s", attempt, e)
             if attempt == MAX_RETRY:
                 logger.debug("Gemini still down - skipping this cycle.")
-                log_event("skip", f"Gemini still down - skipping this cycle.")
+                log_event("max_attempt", f"Gemini still down - skipping this cycle.")
                 return  # abort gracefully
             log_event("first_brain_error", f"Error occured retrying attempt: {attempt}")
             time.sleep(2 ** attempt)  # exponential back-off

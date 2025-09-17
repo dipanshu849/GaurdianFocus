@@ -1,11 +1,13 @@
+import sys 
+sys.path.insert(1, "helper/")
+
+
+import os
 from dotenv import load_dotenv
 from groq import Groq
 from groq import GroqError
-import os
-import sys 
 from logger import get_logger   
 
-sys.path.insert(1, "helper/")
 load_dotenv()
 logger = get_logger(__name__)
 

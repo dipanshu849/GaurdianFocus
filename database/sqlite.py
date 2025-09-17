@@ -1,12 +1,14 @@
+import sys 
+sys.path.insert(1, "helper/")
+
+
 import sqlite3
 import time
 import os
-import sys 
 from dotenv import load_dotenv
 from logger import get_logger   
 from file_logger import log_event
 
-sys.path.insert(1, "helper/")
 load_dotenv()
 logger = get_logger(__name__)
 
