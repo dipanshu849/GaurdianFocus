@@ -131,11 +131,13 @@ The project has two independent parts:
   - Mozilla Firefox
   - Git
 
+  NOTE: All commands are to executed from the root folder
+
   ```bash
       # 1. Clone
-      git clone https://github.com/YOU/guardian-agent.git
+      git clone https://github.com/dipanshu849/GaurdianFocus.git
       # 2. Virtual environment
-      python -m venv venv
+      python3 -m venv venv # check which python or python3
   ```
   ```bash
       # Windows
@@ -186,3 +188,4 @@ The project has two independent parts:
 ## Deliverables
 1. Interaction logs: I are using a work or school account (which not allow public sharing)
    But I have included all the screenshots of interaction logs in the google drive link
+    [📂 Google Drive folder]([https://drive.google.com/drive/folders/YOUR_FOLDER_ID?usp=sharing](https://drive.google.com/drive/folders/1f1c9BSmiEr-S--Pcgm8P__UhMEN6-3qw?usp=sharing))
