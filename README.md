@@ -63,6 +63,14 @@ Created UI [With streamlit]
 </table>
 
 ## System Architecture
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <img src="assests/diagram.svg" alt="Demo of my project">
+    </td>
+  </tr>
+</table>
+
 
 ### Workflow
 1. Data Collection: A Firefox Browser Extension acts as a sensor, collecting data about all open tabs every two minutes and sending it to a local server.
